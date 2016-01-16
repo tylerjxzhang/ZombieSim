@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=theme\ store
+comment0.target=TransitionFade(greenfoot.GreenfootSound,\ ModificationStorage)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ TransitionFade.\r\n\ \r\n\ @param\ theme\ the\ theme\ music\ being\ passed\ from\ this\ world\ to\ the\ next\r\n\ @param\ store\ the\ object\ carrying\ the\ modifiable\ variables\ from\ one\ world\ to\ the\ next\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ TransitionFade\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=void\ fadeImage()
+comment2.text=\r\n\ Smoothly\ fades\ the\ image\ that\ is\ set\ to\ this\ world,\ into\ a\ black\ background.\r\n
+comment3.params=
+comment3.target=void\ timer()
+comment3.text=\r\n\ Counts\ up\ until\ a\ particular\ integer\ value,\ and\ then\ switches\ the\ screen\ into\ another\ world;\ that\ being\ LoadingScreen.\r\n\ Essentially\ determines\ how\ long\ the\ transition\ fade\ will\ last.\r\n
+comment4.params=
+comment4.target=void\ started()
+comment4.text=\r\n\ Starts\ playing\ the\ theme\ of\ the\ zombie\ simulation.\r\n
+comment5.params=
+comment5.target=void\ stopped()
+comment5.text=\r\n\ Stops\ playing\ the\ theme\ when\ the\ simulation\ is\ not\ running.\r\n
+numComments=6

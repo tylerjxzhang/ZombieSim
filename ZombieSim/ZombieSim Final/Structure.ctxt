@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=int\ getFood()
+comment0.text=\r\n\ Returns\ amount\ of\ food\ this\ structure\ owns\r\n\ \r\n\ @return\ int\ \ total\ food\ stockpile\ of\ the\ structure\r\n
+comment1.params=
+comment1.target=int\ getWeapons()
+comment1.text=\r\n\ Returns\ amount\ of\ weapons\ this\ structure\ owns\r\n\ \r\n\ @return\ int\ \ total\ weapons\ cache\ of\ the\ structure\r\n
+numComments=2

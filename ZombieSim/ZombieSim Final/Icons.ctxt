@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ act()
+comment0.text=\r\n\ Set\ the\ location\ of\ the\ icon\ to\ be\ above\ the\ human\ character.\r\n
+comment1.params=
+comment1.target=Humans\ getTarget()
+comment1.text=\r\n\ Return\ the\ target\ that\ the\ icon\ is\ following.\r\n\ \r\n\ @return\ Humans\ The\ human\ object\ being\ followed\r\n
+numComments=2

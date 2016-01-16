@@ -1,0 +1,238 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
+import java.awt.Color;
+/**
+ * Write a description of class PathFinder here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class PathFinder implements Runnable
+{
+    private static boolean draw = false;
+    private PathNode[][] pathNodes;
+    private int width;
+    private int height;
+    private int cost = 1;
+    private boolean[][] obstacleMap;
+    private GreenfootImage imageMap;
+    private List openList;
+    private List closedList;
+    World w;
+    private boolean ready = true;
+    /**
+     * Act - do whatever the PathFinder wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public PathFinder(World world){
+         imageMap = new GreenfootImage(world.getWidth(),world.getHeight());
+         w = world;
+    }
+    
+    public void run(){
+        createObstacleMap(w);
+        ready = true;
+    }
+    
+    public void setResolution(World world){
+        if(pathNodes != null){
+            pathNodes = null;
+        }
+        width = (world.getWidth() / pathResolution);
+        height = (world.getHeight() / pathResolution);
+        pathNodes = new PathNode[width][height];
+    }
+    
+    public void createObstacleMap(World world){
+        ready = false;
+        imageMap.clear();
+        //long start = System.currentTimeMillis();
+        if(obstacleMap != null){
+            obstacleMap = null;
+        }
+        obstacleMap = new boolean[width][height];
+        for(int x = 0;x < width;x++){
+            for(int y = 0;y < height;y++){
+                obstacleMap[x][y] = true;
+            }
+        }
+        PathNode hitTest = new PathNode();
+        world.addObject(hitTest,0,0);
+        for(int x = 0;x < width;x++){
+            for(int y = 0;y < height;y++){
+                hitTest.setLocation(x,y);
+                if(hitTest.hitTest()){
+                    obstacleMap[x][y] = false;
+                    if(draw){
+                        imageMap.fillRect(x,y,5,5);
+                    }
+                }
+            }
+        }
+        
+        for(int x = 0;x < width;x++){
+            obstacleMap[x][0] = false;
+            obstacleMap[0][x] = false;
+            obstacleMap[width - 1][x] = false;
+            obstacleMap[x][width - 1] = false;
+        }
+        hitTest.setLocation((world.getWidth()/ 2),(world.getHeight() / 2));
+        hitTest.setImage(imageMap);
+    }
+    
+    public ArrayList findPath(Point s, Point d){
+        ready = false;
+        if(!obstacleMap[d.getX()][d.getY()] || obstacleMap == null){
+            return null;
+        }
+        imageMap.clear();
+        ArrayList open = new ArrayList();
+        ArrayList closed = new ArrayList();
+        pathNodes = new PathNode[width][height];
+        PathNode current = new PathNode(s,heuristic(s,d));
+        open.add(current);
+        pathNodes[current.position.getX()][current.position.getY()] = current;
+        while(!open.isEmpty()){
+            int bestIndex = bestNode(open);
+            current = (PathNode)open.get(bestIndex);
+            if(current.position.equals(d)){
+                return returnPath(s,current);
+            }
+            open.remove(bestIndex);
+            current.open = false;
+            closed.add(current);
+            for(int x = 0;x < 8;x++){
+                Point nPoint = neighbour(current.position, x);
+                if(pathNodes[nPoint.getX()][nPoint.getY()] != null || !obstacleMapOpen(nPoint)){
+                    continue;
+                }
+                PathNode newNode = new PathNode(nPoint,current,heuristic(nPoint,d));
+                open.add(newNode);
+                pathNodes[nPoint.getX()][nPoint.getY()] = newNode;
+                if(draw){
+                    imageMap.drawLine(current.position.getX(),current.position.getY(),nPoint.getX(),nPoint.getY());
+                }
+            }
+        }
+        return null;
+    }
+    
+    public boolean obstacleMapOpen(Point p){
+        try{
+            return obstacleMap[p.getX()][p.getY()];
+        } catch (ArrayIndexOutOfBoundsException e){
+            return false;
+        }
+    }
+    
+    public int heuristic(Point s, Point d){
+        return (Math.abs(s.getX() - d.getX()) + Math.abs(s.getY() - d.getY()));
+    }
+    
+    public int bestNode(ArrayList list){
+        if(list.isEmpty()){
+            return 0;
+        }
+        int best = 0;
+        PathNode bestNode;
+        PathNode newNode;
+        for(int x = 0;x < list.size();x++){
+            bestNode = (PathNode)list.get(best);
+            newNode = (PathNode)list.get(x);
+            if(newNode.getG() < bestNode.getG()){
+                best = x;
+            }
+        }
+        return best;
+    }
+    
+    public ArrayList returnPath(Point s,PathNode pathNode){
+        imageMap.setColor(Color.RED);
+        ArrayList path = new ArrayList();
+
+        path.add(new Point(pathNode.position.getX(),pathNode.position.getY()));
+        PathNode nextNode = pathNode.getPathNodeParent();
+        if(nextNode == null){
+            imageMap.setColor(Color.BLACK);
+            return null;
+        }
+        if(draw && nextNode.getPathNodeParent() != null){
+            imageMap.drawLine(pathNode.position.getX(),pathNode.position.getY(),nextNode.position.getX(),nextNode.position.getY());
+        }
+        while(nextNode != null){
+            if(draw && nextNode.getPathNodeParent() != null){
+                imageMap.drawLine(nextNode.getPathNodeParent().position.getX(),nextNode.getPathNodeParent().position.getY(),nextNode.position.getX(),nextNode.position.getY());
+            }
+            path.add(new Point(nextNode.position.getX(),nextNode.position.getY()));
+            nextNode = nextNode.getPathNodeParent();
+        }
+        imageMap.setColor(Color.BLACK);
+        Collections.reverse(path);
+        return path;
+    }
+    
+    public Point neighbour(Point p, int i){
+        if(i == 0){
+            return (new Point(p.getX(),p.getY() - 1));
+        }
+        else if(i == 1){
+            return (new Point(p.getX() + 1,p.getY() - 1));
+        }
+        else if(i == 2){
+            return(new Point(p.getX() + 1,p.getY()));
+        }
+        else if(i == 3){
+            return(new Point(p.getX() + 1,p.getY() + 1));
+        }
+        else if(i == 4){
+            return(new Point(p.getX(),p.getY() + 1));
+        }
+        else if(i == 5){
+            return(new Point(p.getX() - 1,p.getY() + 1));
+        }
+        else if(i == 6){
+            return(new Point(p.getX() - 1,p.getY()));
+        }
+        else if(i == 7){
+            return(new Point(p.getX() - 1,p.getY() - 1));
+        }
+        return null;
+    }
+    
+    public boolean inList(Point p, ArrayList list){
+        if(list.isEmpty() || list == null || p == null){
+            return false;
+        }
+        for(int x = 0;x < list.size();x++){
+            PathNode node = (PathNode)list.get(x);
+            if(node.position.equals(p)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public int getWidth(){
+        return width;
+    }
+    
+    public int getHeight(){
+        return height;
+    }
+    
+    public boolean getReady(){
+        return ready;
+    }
+    
+    public void setReady(boolean b){
+        ready = b;
+    }
+    
+    public static boolean getDraw(){
+        return draw;
+    }
+    
+    public static void setDraw(boolean b){
+        draw = b;
+    }
+}

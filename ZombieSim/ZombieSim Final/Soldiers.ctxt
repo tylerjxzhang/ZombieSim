@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=base
+comment0.target=Soldiers(int)
+comment0.text=\r\n\ Create\ a\ soldier\ from\ a\ specific\ base\ with\ the\ ability\ to\ shoot\ zombies,\ die\ or\ be\ converted\ and\ keep\ track\ of\ their\ ammunition.\r\n\ \r\n\ @param\ base\ The\ number\ of\ the\ base.\r\n\ \r\n
+comment1.params=ZombieWorld
+comment1.target=void\ addedToWorld(greenfoot.World)
+comment1.text=\r\n\ Adds\ the\ icon\ related\ to\ the\ soldier\ to\ the\ ZombieWorld\ when\ the\ soldier\ is\ created\ in\ ZombieWorld\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ The\ soldier\ will\ continue\ to\ wander\ around\ the\ map\ after\ being\ spawned\ (only\ if\ weapons\ are\ available)\ until\ it\ sees\ zombies.\r\n\ Once\ it\ sees\ zombies\ it\ will\ shoot\ to\ kill,\ until\ it\ runs\ out\ of\ bullets.\ \r\n\ At\ that\ point\ they\ will\ attempt\ to\ return\ to\ their\ respective\ base.\r\n\ \r\n
+comment3.params=
+comment3.target=void\ shoot()
+comment3.text=\r\n\ Shooting\ method\ for\ soldier\ that\ generates\ a\ bullet,\ then\ adds\ the\ bullet\ object\ to\ a\ specific\ location.\r\n
+comment4.params=
+comment4.target=double\ getRadRotation()
+comment4.text=\r\n\ Returns\ the\ rotation\ of\ the\ gun\ in\ radians\ required\ to\ point\ towards\ the\ zombie\ target.\r\n\ \r\n\ @return\ double\ \ \ the\ rotation\ in\ radians\ of\ the\ soldier\r\n
+comment5.params=
+comment5.target=boolean\ findTargets()
+comment5.text=\r\n\ Finds\ zombie\ targets\ within\ range\ searchRange\r\n\ \r\n\ @return\ boolean\ \ Determines\ whether\ or\ not\ there\ are\ currently\ zombies\ in\ range\ of\ soldier.\r\n
+comment6.params=
+comment6.target=void\ updateImg()
+comment6.text=\r\n\ Update\ the\ image\ of\ the\ soldier,\ with\ any\ icons\r\n
+numComments=7

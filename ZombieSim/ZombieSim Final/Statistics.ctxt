@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=population\ food\ weapons
+comment0.target=Statistics(int,\ int,\ int)
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Statistics\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=population\ food\ weapons
+comment2.target=void\ updateValues(int,\ int,\ int)
+comment2.text=\r\n\ Mutator\ that\ updates\ the\ display\ with\ all\ information\ from\ their\ base\r\n\ \r\n\ @param\ population\ \ \ \ the\ population\ value\ given\ by\ the\ base\r\n\ @param\ food\ \ \ \ \ \ \ \ \ \ the\ food\ value\ given\ by\ the\ base\r\n\ @param\ weapons\ \ \ \ \ \ \ the\ weapons\ value\ given\ by\ the\ base\r\n
+comment3.params=
+comment3.target=void\ showStatistics()
+comment3.text=\r\n\ Makes\ the\ stats\ image\ visible\ or\ invisible\ when\ clicked\ on\ by\ the\ mouse\r\n
+comment4.params=
+comment4.target=void\ updateImage()
+comment4.text=\r\n\ Updates\ the\ object's\ image\ with\ any\ new\ values\ by\ clearing\ previous\ images\ and\ updating\ them\ with\ the\ new\ values\r\n
+numComments=5

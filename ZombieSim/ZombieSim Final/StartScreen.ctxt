@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=
+comment0.target=StartScreen()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ StartScreen.\r\n\ \r\n
+comment1.params=
+comment1.target=void\ prepare()
+comment1.text=\r\n\ Prepare\ the\ world\ for\ the\ start\ of\ the\ program.\ That\ is\:\ create\ the\ initial\r\n\ objects\ and\ add\ them\ to\ the\ world.\r\n
+comment2.params=
+comment2.target=int\ getStartPop()
+comment3.params=
+comment3.target=int\ getStartFood()
+comment4.params=
+comment4.target=int\ getStartWeapon()
+comment5.params=
+comment5.target=int\ getMaxZombieSpawn()
+comment6.params=
+comment6.target=void\ started()
+comment6.text=\r\n\ Starts\ playing\ the\ opening\ theme\ of\ the\ zombie\ simulation.\r\n
+comment7.params=
+comment7.target=void\ stopped()
+comment7.text=\r\n\ Stops\ playing\ the\ theme\ when\ the\ simulation\ is\ not\ running\r\n
+comment8.params=
+comment8.target=greenfoot.GreenfootSound\ getTheme()
+comment8.text=\ \r\n\ Accessor\ that\ returns\ the\ GreenfootSound\ theme\r\n\ \r\n\ @return\ GreenfootSound\ \ \ the\ music\ theme\ being\ played\r\n
+numComments=9

@@ -1,0 +1,89 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class Bullet here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Bullet extends Actor
+{
+    int width = getImage().getWidth();
+    int height = getImage().getHeight();
+    int Vx;
+    int Vy;
+    Zombie target;
+    public Bullet (double velocityX, double velocityY, int angle) {
+        Vx = (int)velocityX;
+        Vy = (int)velocityY;
+        setRotation(angle);
+    }
+
+    /**
+     * Act - do whatever the Bullet wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        if (outOfBounds()) {getWorld().removeObject(this); 
+        }else if (hasHit()){hitObject(25);
+        }else if (hasHit() == false) {setLocation(getX() + Vx, getY() + Vy);}
+    }    
+
+    /**
+     * Checks if there is an object from the projectile to the vertical and horizontal velocity. If there is, snaps to that object and lands.
+     */
+    public boolean hasHit () {
+        for (int i = 0; i <= height/2 + Vy; i++) {
+            for (int h = 0; h <= Vx; h++) {     
+                if (getOneObjectAtOffset(h, i, null) != null && getOneObjectAtOffset(h, i, Humans.class) == null && getOneObjectAtOffset(h, i, Base.class) == null) {
+                    setLocation(getOneObjectAtOffset(h,i,null).getX(), getOneObjectAtOffset(h,i,null).getY());
+                    return true;
+                }
+            }
+            for (int h = 0; h >= Vx; h--) {           
+                if (getOneObjectAtOffset(h, i, null) != null && getOneObjectAtOffset(h, i, Humans.class) == null && getOneObjectAtOffset(h, i, Base.class) == null) {
+                    setLocation(getOneObjectAtOffset(h,i,null).getX(), getOneObjectAtOffset(h,i,null).getY());
+                    return true;
+                }
+            }
+        } 
+        for (int i = 0; i >= height/2 + Vy; i--) {
+            for (int h = 0; h <= Vx; h++) {           
+                if (getOneObjectAtOffset(h, i, null) != null && getOneObjectAtOffset(h, i, Humans.class) == null && getOneObjectAtOffset(h, i, Base.class) == null) {
+                    setLocation(getOneObjectAtOffset(h,i,null).getX(), getOneObjectAtOffset(h,i,null).getY());
+                    return true;
+                }
+            }
+            for (int h = 0; h >= Vx; h--) {           
+                if (getOneObjectAtOffset(h, i, null) != null && getOneObjectAtOffset(h, i, Humans.class) == null && getOneObjectAtOffset(h, i, Base.class) == null) {
+                    setLocation(getOneObjectAtOffset(h,i,null).getX(), getOneObjectAtOffset(h,i,null).getY());
+                    return true;
+                }
+            }
+        } 
+        return false; 
+    }
+
+    public void hitObject (int damage) {
+        if (getOneObjectAtOffset(0, 0, Zombie.class) != null) {
+            target = (Zombie)getOneObjectAtOffset(0, 0, Zombie.class);
+            target.loseHealth(damage);
+        }
+        getWorld().removeObject(this);
+    }
+
+    /**
+     * Returns true if it is out of the bounds of the world
+     * 
+     * @return boolean  whether or not the bullet has reached the edge of the world
+     */
+    public boolean outOfBounds() { 
+        if(getX() >= 959 || getX() <= 0) {
+            return true;
+        } else if (getY() >= 639 || getY() <= 0) {
+            return true;
+        }
+        return false;
+    }
+}

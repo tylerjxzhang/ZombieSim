@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ModificationStorage()
+comment0.text=\r\n\ Constructor\ that\ stores\ the\ variables\ in\ the\ object\r\n\ \r\n
+comment1.params=
+comment1.target=int\ getPopulation()
+comment1.text=\r\n\ Accessor\ for\ starting\ population\r\n\ \r\n\ @return\ int\ \ the\ starting\ population\ stored\r\n
+comment2.params=
+comment2.target=int\ getFood()
+comment2.text=\r\n\ Accessor\ for\ starting\ food\r\n\ \r\n\ @return\ int\ \ the\ starting\ food\ stored\r\n
+comment3.params=
+comment3.target=int\ getWeapons()
+comment3.text=\r\n\ Accessor\ for\ starting\ weapons\r\n\ \r\n\ @return\ int\ \ the\ starting\ weapons\ stored\r\n
+comment4.params=
+comment4.target=int\ getMaxZombieSpawn()
+comment4.text=\r\n\ Accessor\ for\ maxZombieSpawn\r\n\ \r\n\ @return\ int\ \ the\ max\ zombie\ spawn\ stored\r\n
+comment5.params=population\ food\ weapons\ maxZombieSpawn
+comment5.target=void\ updateValues(int,\ int,\ int,\ int)
+comment5.text=\r\n\ Mutator\ that\ updates\ the\ stored\ values\r\n\ \r\n\ @param\ population\ \ \ \ the\ starting\ population\ given\r\n\ @param\ food\ \ \ \ \ \ \ \ \ \ the\ starting\ food\ given\r\n\ @param\ weapons\ \ \ \ \ \ \ the\ starting\ weapons\ given\r\n\ @param\ maxZombieSpawn\ \ \ \ the\ max\ zombie\ spawn\ given\r\n
+numComments=6

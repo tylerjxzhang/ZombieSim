@@ -1,0 +1,31 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Used to indicate the type of supply that the character is carrying.
+ * 
+ * @author Tyler Zhang
+ * @version Sept 2014
+ */
+public class Food extends Icons
+{
+    Scouts parent; //The target that the icon will fellow.
+    
+    /**
+     * Create a food icon that will fellow its creator.
+     * 
+     * @param par The parent actor that creates the icon.
+     */
+    public Food(Scouts par)
+    {
+        parent = par;
+    }
+    
+    /**
+     * Act - do whatever the food wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void act() 
+    {
+        setLocation(parent.getX(), parent.getY()-30);
+    }    
+}

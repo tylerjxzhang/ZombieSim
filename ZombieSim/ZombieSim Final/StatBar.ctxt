@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=StatBar()
+comment0.text=\r\n\ Creates\ a\ stat\ bar\ that\ will\ be\ displaying\ multiple\ values.\ This\ is\ the\ base\ image.\ \r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ This\ method\ updates\ the\ image\ to\ display\ the\ updated\ statistics\ for\ each\ element\ described\ above.\r\n\ \r\n
+comment2.params=
+comment2.target=void\ updateImage()
+comment2.text=\r\n\ Updates\ the\ values\ of\ the\ general\ stat\ bar.\r\n
+comment3.params=
+comment3.target=void\ showStatistics()
+comment3.text=\r\n\ Sets\ the\ transparency\ of\ the\ statbar\ to\ be\ higher\ when\ it\ is\ being\ clicked.\r\n
+numComments=4

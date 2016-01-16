@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=facingRight
+comment0.target=Plane(boolean)
+comment0.text=\r\n\ Constructor\ for\ plane.\ Responsible\ for\ orienting\ the\ plane\ in\ the\ right\ direction\ and\ adding\ values\ to\ instance\ variables\r\n\ \r\n\ @param\ facingRight\ \ \ whether\ or\ not\ the\ plane\ is\ facing\ right\r\n
+comment1.params=ZombieWorld
+comment1.target=void\ addedToWorld(greenfoot.World)
+comment1.text=\r\n\ Adds\ turrets\ to\ world\ when\ plane\ is\ added\ to\ world\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Plane\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment3.params=
+comment3.target=void\ dropParachuteMarkers()
+comment3.text=\r\n\ Creates\ the\ max\ number\ of\ parachute\ markers\ allowed\ at\ randomized\ locations\r\n
+comment4.params=
+comment4.target=int\ randomizeX()
+comment4.text=\r\n\ randomizes\ an\ X\ value\ \r\n\ \r\n\ @return\ int\ \ The\ random\ X-Value\ generated\r\n
+comment5.params=
+comment5.target=int\ randomizeY()
+comment5.text=\r\n\ randomizes\ a\ Y\ value\r\n\ \r\n\ @return\ int\ \ The\ randomized\ Y-Value\ generated.\ Limited\ to\ approximately\ between\ the\ bases\r\n
+comment6.params=
+comment6.target=void\ shoot()
+comment6.text=\r\n\ Creates\ a\ plane\ bullet\ for\ each\ turret\ in\ the\ direction\ that\ the\ turret\ is\ pointing,\ at\ a\ speed\ of\ the\ value\ bulletSpeed\r\n
+numComments=7

@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=range
+comment0.target=void\ setShootRange(int)
+comment0.text=\r\n\ Mutator\ that\ sets\ the\ shoot\ range\ of\ the\ turret\r\n\ \r\n\ @param\ range\ \ \ \ the\ range\ of\ firing\ for\ the\ turret\r\n
+comment1.params=
+comment1.target=double\ getRadRotation()
+comment1.text=\r\n\ Returns\ the\ rotation\ of\ the\ turret\ in\ radians\r\n\ \r\n\ @return\ double\ \ \ the\ rotation\ of\ the\ turret\ in\ radians\r\n
+comment2.params=
+comment2.target=int\ getLength()
+comment2.text=\r\n\ Returns\ the\ length\ of\ the\ turret\r\n\ \r\n\ @return\ int\ \ the\ length\ of\ the\ turret\r\n
+comment3.params=
+comment3.target=boolean\ findTargets()
+comment3.text=\r\n\ Finds\ zombie\ targets\ within\ range\ shootRange.\ Finds\ the\ nearest\ target\ and\ has\ the\ turret\ turn\ towards\ that\ target\r\n\ \r\n\ @return\ boolean\ \ whether\ or\ not\ there\ are\ zombie\ targets\ within\ the\ range\ of\ the\ turret\r\n
+comment4.params=targets
+comment4.target=Zombie\ getNearestTarget(java.util.List)
+comment4.text=\r\n\ Return\ the\ nearest\ zombie\ to\ the\ turret\ from\ the\ targets\ list\r\n\ \r\n\ @param\ targets\ \ \ a\ list\ of\ zombie\ objects\ \r\n\ @return\ Zombie\ \ \ the\ closest\ zombie\ from\ the\ targets\ list\ to\ the\ base\r\n
+comment5.params=actor
+comment5.target=double\ getDistance(greenfoot.Actor)
+comment5.text=\r\n\ Return\ the\ distance\ from\ this\ to\ another\ object.\r\n\ \r\n\ @param\ actor\ \ \ \ \ the\ actor\ whose\ distance\ is\ being\ determined\r\n\ @return\ double\ \ \ distance\ from\ this\ object\ to\ actor\r\n
+numComments=6

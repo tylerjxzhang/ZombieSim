@@ -1,0 +1,31 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * The icon that will be used to indicate the type of supply carried by a human.
+ * 
+ * @author Tyler Zhang
+ * @version Oct 2014
+ */
+public class Icons extends Actor
+{
+    protected Humans parent; //The target that the icon will follow. 
+    /**
+     * Set the location of the icon to be above the human character.
+     */
+    public void act() 
+    {
+        if (parent != null){
+            setLocation(parent.getX(), parent.getY()-30);
+        }
+    }
+
+    /**
+     * Return the target that the icon is following.
+     * 
+     * @return Humans   the human object being followed
+     */
+    public Humans getTarget()
+    {
+        return parent;
+    }
+}

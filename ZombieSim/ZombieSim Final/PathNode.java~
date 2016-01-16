@@ -1,0 +1,79 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
+/**
+ * Write a description of class PathNode here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class PathNode  extends Actor
+{
+    private static GreenfootImage greenPath = new GreenfootImage(1,1);
+    public Point position;
+    private int g = 0;
+    private PathNode pathNodeParent;
+    public boolean open = true;
+    /**
+     * Act - do whatever the PathNode wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
+    public void addedToWorld(World world){
+        setImage(new GreenfootImage("Bullet.png"));
+    }
+    public PathNode(){
+        position = new Point(0,0);
+        //setImage(greenPath);
+    }
+    public PathNode(int x, int y){
+        position = new Point(x,y);
+        //setImage(greenPath);
+    }
+    public PathNode(Point p){
+        position = p;
+        //setImage(greenPath);
+    }
+    public PathNode(int tmpG){
+        g = tmpG;
+        //setImage(greenPath);
+    }
+    public PathNode(PathNode parent,int tmpG){
+        g = tmpG;
+        pathNodeParent = parent;
+        //setImage(greenPath);
+    }
+    public PathNode(Point p, int tmpG){
+        g = tmpG;
+        position = p;
+        //setImage(greenPath);
+    }
+    public PathNode(Point p, PathNode parent,int tmpG){
+        g = tmpG;
+        pathNodeParent = parent;
+        position = p;
+        //setImage(greenPath);
+    }
+    public boolean hitTest(){
+        Wall wall = (Wall)getOneIntersectingObject(Wall.class);
+        if(wall != null){
+            return true;
+        }
+        Obstacle obstacle = (Obstacle)getOneIntersectingObject(Obstacle.class);
+        if(obstacle != null){
+            return true;
+        }
+        return false;
+    }
+    public void setLocation(int _x,int _y){
+        super.setLocation(_x,_y);
+        position.setXY(_x,_y);
+    }
+    public PathNode getPathNodeParent(){
+        return pathNodeParent;
+    }
+    public int getG(){
+        return g;
+    }
+    public void setG(int tmpG){
+        g = tmpG;
+    }
+}

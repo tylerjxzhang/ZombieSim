@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=par
+comment0.target=Food(Scouts)
+comment0.text=\r\n\ Create\ a\ food\ icon\ that\ will\ follow\ its\ creator.\r\n\ \r\n\ @param\ par\ The\ parent\ actor\ that\ creates\ the\ icon.\r\n
+numComments=1

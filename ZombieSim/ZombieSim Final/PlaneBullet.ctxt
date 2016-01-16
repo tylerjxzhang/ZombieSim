@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=velocityX\ velocityY\ angle
+comment0.target=PlaneBullet(double,\ double,\ int)
+comment0.text=\r\n\ Sets\ the\ velocities\ and\ angle\ of\ the\ bullet\r\n\ \r\n\ @param\ velocityX\ the\ velocity\ in\ the\ X\ direction\ of\ bullet\r\n\ @param\ velocityY\ the\ velocity\ in\ the\ Y\ direction\ of\ bullet\r\n\ @param\ angle\ \ \ \ \ the\ angle\ of\ the\ bullet\ when\ shot\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Bullet\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=boolean\ hasHit()
+comment2.text=\r\n\ Checks\ if\ there\ is\ an\ object\ between\ the\ projectile\ to\ the\ vertical\ and\ horizontal\ velocity.\ If\ there\ is,\ snaps\ to\ that\ object\ and\ lands.\r\n\ \r\n\ @return\ boolean\ \ whether\ or\ not\ the\ bullet\ has\ hit\ a\ base\ or\ zombie\r\n
+numComments=3

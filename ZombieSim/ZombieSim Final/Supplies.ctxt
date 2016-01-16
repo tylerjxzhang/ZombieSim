@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Supplies()
+comment0.text=\r\n\ Default\ constructor\ of\ the\ "Supplies"\ class.\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Supplies\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.params=
+comment2.target=void\ destroyCrate()
+comment2.text=\r\n\ A\ "private"\ or\ helper\ method\ that\ destroys\ the\ supply\ crate,\ should\ the\ number\ of\ supplies\ be\ reduced\ to\ 0.\r\n
+comment3.params=amount
+comment3.target=void\ takeFood(int)
+comment3.text=\r\n\ Take\ away\ a\ number\ of\ the\ food\ supply.\r\n\ \r\n\ @param\ amount\ The\ amount\ of\ food\ that\ will\ be\ taken.\r\n
+comment4.params=amount
+comment4.target=void\ takeWeapons(int)
+comment4.text=\r\n\ Take\ away\ a\ number\ of\ the\ weapon\ supply.\r\n\ \r\n\ @param\ amount\ The\ amount\ of\ weapon\ that\ will\ be\ taken.\r\n
+numComments=5

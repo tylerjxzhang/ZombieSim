@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.params=base\ priFood
+comment0.target=Scouts(int,\ boolean)
+comment0.text=\r\n\ Creates\ a\ scout\ from\ a\ certain\ base\ with\ a\ type\ of\ supply\ that\ the\ scout\ will\ perfer\ to\ obtain.\r\n\ \r\n\ @param\ base\ The\ number\ of\ the\ base.\r\n\ @param\ priFood\ True\ then\ the\ scout\ will\ prioritize\ food\ over\ weapon\ supply.\r\n
+comment1.params=
+comment1.target=void\ act()
+comment1.text=\r\n\ Scouts\ will\ continue\ to\ wander\ around\ the\ map,\ until\ a\ supply\ crate\ is\ in\ their\ site.\r\n\ They\ will\ obtain\ the\ type\ of\ supply\ they\ need,\ then\ return\ to\ base.\r\n\r\n
+comment2.params=actor
+comment2.target=double\ getDistance(greenfoot.Actor)
+comment2.text=\r\n\ Returns\ the\ distance\ from\ this\ to\ another\ object.\r\n\ \r\n\ @return\ double\ the\ distance\ between\ two\ actors.\r\n
+comment3.params=sup
+comment3.target=Supplies\ getNearestSup(java.util.List)
+comment3.text=\r\n\ Returns\ the\ nearest\ supply\ to\ a\ scout.\r\n\ \r\n\ @return\ Supplies\ the\ nearest\ supply\ object.\r\n
+comment4.params=
+comment4.target=void\ findSupply()
+comment4.text=\r\n\ Checks\ to\ see\ if\ there\ are\ supplies\ on\ screen.\r\n\ If\ so,\ set\ the\ nearest\ supply\ as\ the\ target.\r\n
+comment5.params=sup
+comment5.target=void\ getSupply(Supplies)
+comment5.text=\r\n\ Get\ a\ number\ of\ supplies.\r\n
+comment6.params=
+comment6.target=void\ updateImg()
+comment6.text=\r\n\ Updates\ the\ image\ of\ the\ scout,\ with\ the\ type\ of\ supply\ that\ he\ is\ carrying.\r\n
+numComments=7

@@ -1,0 +1,131 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
+/**
+ * The solider will be spawned to the screen whenever there are weapons available at the base. 
+ * The soldiers will wander around the map searching for zombies, and will shoot to kill. 
+ * If they fail they will be converted or eaten.
+ * 
+ * @author Ahrenn Sivananthan, Marco Ly, Tyler Zhang
+ * @version Oct 2014
+ */
+public class Soldiers extends Humans
+{
+    private int shotDelay; // 
+    private int rateOfFire; // rate of fire for bullets (lower ROF means more frequent firing) In other words, the required value for ShotDelay before shooting is allowed
+    private int bulletSpeed; // speed of bullets to be fired
+    private int shootRange; // range of shooting 
+    private int searchRange; // range of zombie detection
+    private int numBullets; // the number of bullets that the soldier has
+    private int outCounter; //Keep track of how long the soldier has been out in the world
+    private Ammo ammo; // The ammo Icon that the soldier owns
+    /**
+     * Create a soldier from a specific base with the ability to shoot zombies, die or be converted and keep track of their ammunition.
+     * 
+     * @param base The number of the base.
+     * 
+     */
+    public Soldiers(int base)
+
+    {
+        // Setting values for returning to base and for base identification
+        baseId = base;
+        target = false; 
+        targetX = 0;
+        targetY = 0;
+
+        // Setting values that will be used in the soldier's behaviour while out in the world
+        shotDelay = 0;
+        rateOfFire = 10;
+        bulletSpeed = 20;
+        numBullets = 25;
+        outCounter = 0;
+        searchRange = 120;
+        shootRange = 0;
+        // Setting values and reference objects that the soldier will use
+        health = 50;
+        speed = 3;
+        myWorld = (ZombieWorld)super.getWorld();
+        ammo = new Ammo(this);
+    }
+
+    /**
+     * The soldier will continue to wander around the map after being spawned (only if weapons are available) until it sees zombies.
+     * Once it sees zombies it will shoot to kill, until it runs out of bullets. 
+     * At that point they will attempt to return to their respective base.
+     * 
+     */
+    public void act() 
+    {
+        avoidObs();
+        if (numBullets <= 0 || outCounter >= 1000){
+            // if ammunition has run out or the soldier has been out for too long, set target as base
+            getWorld().removeObject(ammo);
+            returnToBase();            
+            target = true;
+        }else if (findTargets()){ //If the scout is currently tracing a path to a target.                      
+            shoot();
+        }else{ //If the scout havn't find a supply yet, keep wondering around.
+            wander();
+        }
+        // if the soldier has a target base, move towards it
+        if (target) {
+            turnTowards(targetX, targetY);
+            move(speed);
+            hasReturned();
+        }
+        updateImg();
+        shotDelay++;
+        outCounter++;
+    }    
+
+    /**
+     * Shooting method for soldier that generates a bullet, then adds the bullet object to a specific location.
+     */
+    private void shoot() {
+        if (shotDelay >= rateOfFire) {
+            Bullet bullet = new Bullet(bulletSpeed*Math.cos(this.getRadRotation()), bulletSpeed*Math.sin(this.getRadRotation()), getRotation());
+            getWorld().addObject(bullet, getX(), getY());
+            numBullets--; // decreases number of bullets the soldier has
+            shotDelay = 0;
+        } 
+    }
+
+    /**
+     * Returns the rotation of the gun in radians required to point towards the zombie target.
+     * 
+     * @return double   the rotation in radians of the soldier
+     */
+    private double getRadRotation() {
+        return Math.toRadians(getRotation());
+    }
+
+    /**
+     * Finds zombie targets within range searchRange
+     * 
+     * @return boolean  Determines whether or not there are currently zombies in range of soldier.
+     */
+    private boolean findTargets () {
+        List<Zombie> targets = getObjectsInRange(searchRange, Zombie.class);
+        if (targets.size() == 0) {
+            return false;
+        } else {
+            turnTowards(targets.get(0).getX(),targets.get(0).getY());
+            return true;
+        }
+    }
+
+    /**
+     * Update the image of the soldier, with any icons
+     */
+    private void updateImg()
+    {
+        //To add the icon as a new object.
+        if (numBullets > 0) {
+            try{
+                getWorld().addObject(ammo, getX(), getY() - 30);
+            }catch(Exception e){
+
+            }
+        }
+    }
+}

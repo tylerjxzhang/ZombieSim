@@ -1,0 +1,138 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.*;
+
+/**
+ * The controller of the actors.
+ * 
+ * @author Tyler Zhang
+ * @version Sept 2014
+ */
+public class TestWorld extends World
+{
+    /**
+     * Constructor for objects of class TestWorld.
+     * 
+     */
+    public TestWorld()
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(960, 640, 1); 
+        setPaintOrder(Bullet.class, Icons.class, Char.class, Turret.class, Structure.class);
+        prepare();
+    }
+
+    /**
+     * Prepare the world for the start of the program. That is: create the initial
+     * objects and add them to the world.
+     */
+    private void prepare()
+    {
+        addObject(new Base(1,25,100), 820, 88);
+        addObject(new Base(2,25,100), 139, 85);
+        addObject(new Base(3,25,100), 141, 550);
+        addObject(new Base(4,25,100), 818, 551);
+
+        Rock rock = new Rock();
+        addObject(rock, 495, 335);
+        Rock rock2 = new Rock();
+        addObject(rock2, 504, 241);
+        Rock rock3 = new Rock();
+        addObject(rock3, 506, 137);
+        Rock rock4 = new Rock();
+        addObject(rock4, 502, 449);
+        Rock rock5 = new Rock();
+        addObject(rock5, 511, 566);
+        Rock rock6 = new Rock();
+        addObject(rock6, 642, 344);
+        Rock rock7 = new Rock();
+        addObject(rock7, 777, 348);
+        Rock rock8 = new Rock();
+        addObject(rock8, 368, 345);
+        Rock rock9 = new Rock();
+        addObject(rock9, 232, 353);
+        Rock rock10 = new Rock();
+        addObject(rock10, 897, 277);
+        Rock rock11 = new Rock();
+        addObject(rock11, 892, 409);
+        Rock rock12 = new Rock();
+        addObject(rock12, 111, 289);
+        Rock rock13 = new Rock();
+        addObject(rock13, 115, 419);
+        Rock rock14 = new Rock();
+        addObject(rock14, 376, 248);
+        Rock rock15 = new Rock();
+        addObject(rock15, 644, 242);
+        Rock rock16 = new Rock();
+        addObject(rock16, 375, 459);
+        Rock rock17 = new Rock();
+        addObject(rock17, 646, 459);
+        Tree tree = new Tree();
+        addObject(tree, 414, 168);
+        Tree tree2 = new Tree();
+        addObject(tree2, 627, 170);
+        Tree tree3 = new Tree();
+        addObject(tree3, 757, 280);
+        Tree tree4 = new Tree();
+        addObject(tree4, 750, 437);
+        Tree tree5 = new Tree();
+        addObject(tree5, 608, 561);
+        Tree tree6 = new Tree();
+        addObject(tree6, 435, 545);
+        Tree tree7 = new Tree();
+        addObject(tree7, 294, 434);
+        Tree tree8 = new Tree();
+        addObject(tree8, 303, 298);
+        Tree tree9 = new Tree();
+        addObject(tree9, 116, 359);
+        Tree tree10 = new Tree();
+        addObject(tree10, 900, 349);
+        Tree tree11 = new Tree();
+        addObject(tree11, 519, 56);
+        Tree tree12 = new Tree();
+        addObject(tree12, 378, 85);
+        Tree tree13 = new Tree();
+        addObject(tree13, 349, 602);
+        Tree tree14 = new Tree();
+        addObject(tree14, 213, 241);
+        Tree tree15 = new Tree();
+        addObject(tree15, 575, 396);
+        Supplies supplies = new Supplies();
+        addObject(supplies, 838, 293);
+        Supplies supplies2 = new Supplies();
+        addObject(supplies2, 696, 398);
+        Supplies supplies3 = new Supplies();
+        addObject(supplies3, 577, 289);
+        Supplies supplies4 = new Supplies();
+        addObject(supplies4, 436, 417);
+        Supplies supplies5 = new Supplies();
+        addObject(supplies5, 308, 366);
+        Supplies supplies6 = new Supplies();
+        addObject(supplies6, 201, 425);
+        Supplies supplies7 = new Supplies();
+        addObject(supplies7, 51, 312);
+        Supplies supplies8 = new Supplies();
+        addObject(supplies8, 565, 208);
+        Supplies supplies9 = new Supplies();
+        addObject(supplies9, 344, 216);
+        Supplies supplies10 = new Supplies();
+        addObject(supplies10, 590, 514);
+        Supplies supplies11 = new Supplies();
+        addObject(supplies11, 363, 542);
+        Supplies supplies12 = new Supplies();
+        addObject(supplies12, 436, 303);
+        Supplies supplies13 = new Supplies();
+        addObject(supplies13, 610, 89);
+        Supplies supplies14 = new Supplies();
+        addObject(supplies14, 460, 86);
+        Supplies supplies15 = new Supplies();
+        addObject(supplies15, 556, 621);
+        Zombie zombie = new Zombie();
+        addObject(zombie, 848, 342);
+        Zombie zombie2 = new Zombie();
+        addObject(zombie2, 175, 318);
+        Zombie zombie3 = new Zombie();
+        addObject(zombie3, 503, 194);
+        Zombie zombie4 = new Zombie();
+        addObject(zombie4, 514, 512);
+    }
+}

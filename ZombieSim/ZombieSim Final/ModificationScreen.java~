@@ -1,0 +1,79 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.awt.color;
+
+/**
+ * The screen that allow user to modify the starting data of the simulation.
+ * 
+ * @author Tyler Zhang, Marco Ly
+ * @version Oct 2014
+ */
+public class ModificationScreen extends World
+{
+    // Declaration of necessary instance variables.
+    private GreenfootSound theme;
+    private int startPop;
+    private int startFood;
+    private int startWeapon;
+    private int maxZombieNumber;
+    private TextField t1;
+    private TextField t2;
+    private TextField t3;
+    private TextField t4;
+
+    /**
+     * Constructor for objects of class ModificationScreen.
+     * 
+     */
+    public ModificationScreen(GreenfootSound theme)
+    {    
+        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        super(960, 640, 1); 
+        
+        this.theme = theme;
+        // Prepares the world with the start screen button.
+        prepare();
+        
+        //Assign default value to the variables.
+        startPop = 25;
+        startFood = 100;
+        startWeapon = 0;
+        maxZombieNumber = 400;
+    }
+
+    /**
+     * Prepare the world for the start of the program. That is: create the initial
+     * objects and add them to the world.
+     */
+    private void prepare()
+    {
+        // Generate instance of start screen button.
+        StartScreenButton startscreenbutton = new StartScreenButton();
+        // Add the start screen button object to the start screen world.
+        addObject(startscreenbutton, 661, 545);
+    }
+
+    /**
+     * Starts playing the opening theme of the zombie simulation.
+     */
+    public void started()  
+    {  
+        theme.playLoop();  
+    }
+
+    /**
+     * Stops playing the theme when the simulation is not running
+     */
+    public void stopped()
+    {
+        theme.pause();
+    }
+
+    /** 
+     * Accessor that returns the GreenfootSound theme
+     * 
+     * @return GreenfootSound   the music theme being played
+     */
+    public GreenfootSound getTheme() {
+        return theme;
+    }
+}

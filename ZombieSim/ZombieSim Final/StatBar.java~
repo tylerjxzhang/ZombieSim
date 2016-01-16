@@ -1,0 +1,83 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.awt.Color;
+
+/**
+ * Keeps track of the statistics about actors on screen currently.
+ * The displayed information includes scouts, zombies, and soldiers on screen.
+ * Scout death/alive count, zombie death/alive count,soldier death/alive count, and the total number of supplies dropped.
+ * The total stats bar will be located at the top of the world.
+ * The bar will be half-transparent until a mouse clicks on it.
+ * 
+ * @author Tyler Zhang
+ * @version Oct 2014
+ */
+public class StatBar extends Actor
+{
+    private GreenfootImage bg; //The background of the statbar.
+    private GreenfootImage fg; //The foreground(text) of the statbar.
+    private GreenfootImage img; //The image that will be displayed.
+    private ZombieWorld myWorld;  //The reference to the world.
+    private boolean isShowing; 
+
+    /**
+     * Creates a stat bar that will be displaying multiple values. This is the base image. 
+     */
+    public StatBar()
+    {
+        isShowing = false;
+        bg = new GreenfootImage("bgStat.png");
+        fg = new GreenfootImage(bg.getWidth(), bg.getHeight());
+        img = new GreenfootImage(bg.getWidth(), bg.getHeight());
+        img.drawImage(bg, 0, 0);
+        img.drawImage(fg, 0, 0);
+        img.setTransparency(50);
+        setImage(img);
+    }
+
+    /**
+     * This method updates the image to display the updated statistics for each element described above.
+     * 
+     */
+    public void act() 
+    {
+        updateImage();
+        showStatistics();
+        setImage(img);
+    }    
+
+    /**
+     * Updates the values of the general stat bar.
+     */
+    private void updateImage()
+    { 
+        img.clear();
+        fg.clear();
+        img.drawImage(bg,0,0);
+        
+        myWorld = (ZombieWorld)getWorld();
+        
+        fg.drawImage(new GreenfootImage("" + myWorld.getScoutOnScreen(), 18, Color.WHITE, null), 175, 37);
+        fg.drawImage(new GreenfootImage("" + myWorld.getSoldierOnScreen(), 18, Color.WHITE, null), 175, 57);
+        fg.drawImage(new GreenfootImage("" + myWorld.getZombieOnScreen(), 18, Color.WHITE, null), 175, 77);
+        fg.drawImage(new GreenfootImage("" + myWorld.getHumanKilledCount(), 18, Color.WHITE, null), 360, 37);
+        fg.drawImage(new GreenfootImage("" + myWorld.getZombieKilledCount(), 18, Color.WHITE, null), 360, 57);
+        fg.drawImage(new GreenfootImage("" + myWorld.getHumanConvertedCount(), 18, Color.WHITE, null), 360, 77);
+        fg.drawImage(new GreenfootImage("" + myWorld.getTotalSupply(), 18, Color.WHITE, null), 260, 111);
+        fg.drawImage(new GreenfootImage("" + myWorld.getTotalZombieSpawn(), 18, Color.WHITE, null), 260, 130);
+        
+        img.drawImage(fg,0,0);
+    }
+
+    /**
+     * Sets the transparency of the statbar to be higher when it is being clicked.
+     */
+    private void showStatistics() {
+        if(Greenfoot.mouseClicked(this) && isShowing == true) {
+            img.setTransparency(50);
+            isShowing = false;
+        } else if (Greenfoot.mouseClicked(this) && isShowing == false) {
+            img.setTransparency(255);
+            isShowing = true;
+        }
+    }
+}

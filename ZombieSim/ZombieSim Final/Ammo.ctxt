@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=par
+comment0.target=Ammo(Soldiers)
+comment0.text=\r\n\ Create\ an\ ammunition\ icon\ that\ will\ follow\ its\ creator.\r\n\ \r\n\ @param\ par\ The\ parent\ actor\ that\ creates\ the\ icon.\r\n
+numComments=1
